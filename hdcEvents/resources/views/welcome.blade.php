@@ -1,24 +1,50 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
 
-        <title>Hello World</title>
+@section('title', 'HDC Events')
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+@section('content')
 
-        <!--Styles-->
-        <link rel="stylesheet" href=/css/styles.css>
 
-        <!--Scripts-->
-        <script src="/js/scripts.js"></script>
 
-    </head>
+<div id="search-container" class="col-md-12">
+    <h1>Busque um evento</h1>
+    <form action="">
+        <input type="text" name="search" id="serach" class="form-control" placeholder="Procurar">
+    </form>
+</div>
+<div id="events-container" class="col-md-12">
+    <h2>Proximos Eventos</h2>
+    <p>Veja os eventos dos próximos dias</p>
+    <div id="cards-container" class="row">
+        @foreach($events as $event)
+            <div class="card col-md-3">
+                <img src="/img/event_placeholder.jpg" alt="{{$event->title}}" />
+                <div class="card-body">
+                    <p class="card-date">
+                        10/09/2020
+                    </p>
+                    <h5 class="card-title">
+                        {{$event->title}}
+                    </h5>
+                    <p class="card-participants">
+                        X participants
+                    </p>
+                    <a href="#" class="btn btn-primary">
+                        Saber Mais
+                    </a>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+    
 
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
+
+
+
+@endsection
+
+{{--
         <h1>Hello world</h1>
         <img src="/img/banner.jpg" alt="banner">
         
@@ -51,7 +77,4 @@
 
             echo $frase;
         @endphp
-
-        {{-- comentario blade--}}
-    </body>
-</html>
+--}}

@@ -1,3 +1,11 @@
 h1 {
   color: red;
 }
+
+* {
+  font-family: 'Roboto';
+}
+
+.navbar-brand img {
+  width: 50px;
+}
